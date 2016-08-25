@@ -1,5 +1,6 @@
 package me.kieranwallbanks.radiobeacon.listener;
 
+import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -57,21 +58,26 @@ public class AntennaPlayerListener implements Listener {
         Block block = event.getClickedBlock();
         ItemStack item = event.getItem();
         Player player = event.getPlayer();
-
+        
         if (block != null && AntennaConf.isFixedBaseMaterial(block.getType())) {
             Antenna ant = Antenna.getAntenna(block.getLocation());
             if (ant == null) {
                 return;
             }
-
-            ant.receiveSignals(player);
+            if(!this.isInOverClick(player)){
+            	ant.receiveSignals(player);
+            	this.preventOverClick(player);
+            }
         } else if (block != null && block.getType() == Material.WALL_SIGN) {
             for (int dx = -1; dx <= 1; dx += 1) {
                 for (int dz = -1; dz <= 1; dz += 1) {
                     Antenna ant = Antenna.getAntenna(block.getLocation().add(dx, 0, dz));
 
                     if (ant != null) {
-                        ant.receiveSignals(player);
+                    	if(!this.isInOverClick(player)){
+                        	ant.receiveSignals(player);
+                        	this.preventOverClick(player);
+                    	}
                     }
                 }
             }
@@ -134,5 +140,25 @@ public class AntennaPlayerListener implements Listener {
                 playerScanBonus.put(player.getUniqueId(), 0);
             }
         }
-    } 
+    }
+    final static ArrayList<Player> overclick = new ArrayList<Player>();
+    public void preventOverClick(final Player p){
+    	overclick.add(p);
+    	Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+
+			@Override
+			public void run() {
+				overclick.remove(p);
+			}
+    		
+    	}, 10L);
+    }
+    
+    public boolean isInOverClick(Player p){
+    	if(overclick.contains(p)){
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
 }
