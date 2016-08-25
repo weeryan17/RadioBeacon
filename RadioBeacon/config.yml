@@ -1,0 +1,53 @@
+fixedInitialRadius: 50
+fixedRadiusIncreasePerBlock: 50
+fixedMaxHeightMeters: 0
+fixedRadiusStormFactor: 0.7
+fixedRadiusThunderFactor: 1.1
+fixedRadiusRelayFactor: 1.0
+fixedReceptionRadiusDivisor: 1
+fixedBaseMinY: 0
+#fixedBaseMinY: 64              # sea level
+fixedBaseMaterial: iron_block
+#fixedBaseMaterial: jukebox
+fixedBaseRelayMaterial: gold_block
+fixedAntennaMaterial: iron_fence
+#fixedRadiateFrom: base
+fixedRadiateFrom: tip
+fixedLightningAttractRadiusInitial: 3
+fixedLightningAttractRadiusIncreasePerBlock: 0.1
+fixedLightningAttractRadiusMax: 6
+fixedLightningDamage: true
+fixedLightningStrikeOne: true
+fixedWeatherListener: true
+fixedBlastPowerInitial: 1
+fixedBlastPowerIncreasePerBlock: 0.4
+fixedBlastPowerMax: 6.0
+fixedBlastSetFire: true
+fixedExplosionReactionDelayTicks: 20
+fixedUnpoweredNagMessage: 'Tip: remove and place this block near redstone current to build an antenna'
+#fixedUnpoweredNagMessage: ''
+fixedDenyCreateMessage: 'Sorry, you do not have permission to build radio towers'
+#fixedDenyCreateMessage: ''
+fixedDenyAddMessageBreak: true
+fixedDenyAddMessageMessage: 'Sorry, you do not have permission to add transmission messages'
+#fixedDenyAddMessageMessage: ''
+
+mobileRadioItem: 345
+mobileInitialRadius: 0
+mobileIncreaseRadius: 10
+mobileMaxRadius: 10000
+mobileRadiusStormFactor: 1.0
+mobileRadiusThunderFactor: 1.0
+mobileScanBonusRadius: 0
+mobileScanBonusMaxRadius: 0
+mobileTaskStartDelaySeconds: 0
+mobileTaskPeriodSeconds: 15
+mobileRightClickTuneDown: true
+mobileLeftClickTuneUp: true
+mobileShiftTune: false
+mobileSetCompassTarget: true
+mobileSignalLock: true
+mobileNoSignalsMessage: 'No radio beacon signals within %d m'
+#mobileNoSignalsMessage: ''
+
+verbose: true
