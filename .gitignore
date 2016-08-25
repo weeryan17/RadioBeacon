@@ -1,8 +1,1 @@
-*.class
-*.jar
-*.swp
-/bin
-/.settings
-/.classpath
-/.project
-/target
+/bin/
