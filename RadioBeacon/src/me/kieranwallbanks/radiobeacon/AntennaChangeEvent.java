@@ -30,6 +30,8 @@ package me.kieranwallbanks.radiobeacon;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import me.kieranwallbanks.radiobeacon.util.Antenna;
+
 public class AntennaChangeEvent extends Event {
     private final Antenna antenna;
     private final Action action;
